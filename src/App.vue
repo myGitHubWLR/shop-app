@@ -1,12 +1,18 @@
 <template>
   <div id="app">
-    <router-link to="/">首页</router-link>
-    <router-link to="/about">关于</router-link>
-    <router-view></router-view>
+    <!-- 缓存 -->
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"></router-view>
+    </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive"></router-view>
   </div>
   
 </template>
-
+<script>
+export default {
+  
+}
+</script>
 <style lang="scss">
-
+  
 </style>
